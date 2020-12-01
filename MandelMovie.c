@@ -29,6 +29,13 @@ As another example, if initialscale=10, finalscale=0.01, framecount=5, then your
 */
 void MandelMovie(double threshold, u_int64_t max_iterations, ComplexNumber* center, double initialscale, double finalscale, int framecount, u_int64_t resolution, u_int64_t ** output){
     //YOUR CODE HERE
+	double scale = initialscale;
+	double ratio = pow(finalscale/initialscale, 1/(framecount - 1));
+	for (int i = 0; i < framecount; i++) {
+		Mandelbrot(threshold, max_iterations, center, scale, resolution, output + i);
+		scale *= ratio;	
+	}
+	
 }
 
 /**************

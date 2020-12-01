@@ -47,6 +47,12 @@ int P3colorpalette(char* colorfile, int width, int heightpercolor, char* outputf
 			fprintf(outfile, "%hhu %hhu %hhu\n", *(linecolor), *(linecolor + 1), *(linecolor + 2));
 		}
 	}
+	fclose(outfile);
+	for(int i = 0; i < *(colorcount); i++) {
+		free(*(colormap + i));
+	}
+	free(colormap);
+	free(colorcount);
 
 	return 0;
 }
@@ -81,6 +87,13 @@ int P6colorpalette(char* colorfile, int width, int heightpercolor, char* outputf
 			}
 		}
 	}
+
+	fclose(outfile);
+	for(int i = 0; i < *(colorcount); i++) {
+		free(*(colormap + i));
+	}
+	free(colormap);
+	free(colorcount);
 	return 0;
 }
 
