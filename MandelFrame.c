@@ -55,10 +55,10 @@ void printUsage(char* argv[])
 	u_int64_t *ar;
 	ar = (u_int64_t *)malloc(size * size * sizeof(u_int64_t));
 	if (ar == NULL) {
-		printf("Unable to allocate %lu bytes\n", size * size * sizeof(u_int64_t));
+		printf("Unable to allocate %llu bytes\n", size * size * sizeof(u_int64_t));
 		return 1;
 	}
-	printf("Beginning calculation of Mandelbrot grid centered on %lf + %lfi, with scale of %lf, max iterations of %lu, \nthreshold of %lf, and resolution of %lu \n",
+	printf("Beginning calculation of Mandelbrot grid centered on %lf + %lfi, with scale of %lf, max iterations of %llu, \nthreshold of %lf, and resolution of %llu \n",
 		atof(argv[3]), atof(argv[4]), scale, max_iterations, threshold, resolution);
 
 	Mandelbrot(threshold, max_iterations, center, scale, resolution, ar);
@@ -73,7 +73,7 @@ void printUsage(char* argv[])
 		for (int col = 0; col < size; col++) {
 			iterations = *(ar + row*size + col); // ar[row][col];
 
-			fprintf(outputfile, "%lu ", iterations);
+			fprintf(outputfile, "%llu ", iterations);
 		}
 		fputc('\n', outputfile);
 	}	
@@ -84,5 +84,6 @@ void printUsage(char* argv[])
 
 	//STEP 4: Free all allocated memory
 	free(ar);
+	free(center);
 	return 0;
 }
