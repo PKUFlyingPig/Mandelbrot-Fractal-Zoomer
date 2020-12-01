@@ -1,5 +1,4 @@
 # Mandelbrot Fractal Zoomer
-![image-Mandelbrot](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Mandelbrot_sequence_new.gif/220px-Mandelbrot_sequence_new.gif)
 
 In this project, you will be implementing the Mandelbrot function and translating the result to an image!
 
